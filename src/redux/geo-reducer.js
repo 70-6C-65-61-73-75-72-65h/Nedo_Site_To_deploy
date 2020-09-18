@@ -79,7 +79,7 @@ export const getMyLocation = () => async (dispatch) => {
 
     try {
         const position = await new Promise(function (resolve, reject) {
-            let positionOption = { timeout: 500, enableHighAccuracy: true };
+            let positionOption = { timeout: 20000, enableHighAccuracy: true };
             navigator.geolocation.getCurrentPosition(
                 position => { 
                     resolve(position)
