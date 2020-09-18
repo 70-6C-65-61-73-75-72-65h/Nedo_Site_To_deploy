@@ -1,0 +1,54 @@
+.geolocation {
+    background-image: linear-gradient(45deg, blue 20%, rgb(3, 3, 71) 25%, rgb(33, 33, 88) 35%) fixed;
+    border: 0.3vh grey dotted;
+    border-radius: 0.5vh;
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+ 
+    margin: 5vh;
+    
+    & > * {
+        padding: 2vh;
+    }
+
+    .find_me{ 
+
+        
+        border-radius: 25%;
+        border: 0.4vh rgb(153, 201, 8) solid;
+        background-image: linear-gradient(45deg, rgb(211, 197, 0) 20%, rgb(99, 198, 0) 25%, rgb(204, 182, 9) 35%) ;
+        
+        &:hover{
+            background-image: linear-gradient(45deg, rgba(211, 197, 0, 0.6) 20%, rgba(99, 198, 0, 0.6) 25%, rgba(204, 182, 9, 0.6) 35%) ;
+            border-color: rgb(133, 0, 0);
+            box-shadow: 0.3vh 0.3vh 1vh 0.5vh red;
+        } 
+        &:active{
+            background-image: linear-gradient(45deg, rgb(69, 16, 44) 20%, rgb(133, 5, 54) 25%, rgb(174, 24, 94) 35%) ;
+            color: white;
+        }
+
+        &:disabled{
+            background-image: linear-gradient(45deg, rgba(69, 16, 44, 0.2) 20%, rgba(133, 5, 54, 0.2) 25%, rgba(174, 24, 94, 0.2) 35%) ;
+
+            &:hover{
+                border-color:rgb(153, 201, 8);
+                box-shadow: none;
+                cursor: auto;
+            }  
+        }
+
+    }  
+
+    .scaleMapLocation {
+        &:focus{
+            box-shadow: 0.3vh 0.3vh 1vh 0.5vh rgb(0, 255, 110);
+        }
+    }
+}
+
+    

@@ -1,0 +1,25 @@
+.formControl {
+    border: solid red 0.2vh;
+    .error {
+        & textarea, input{
+            border: solid red 0.2vh;
+        }
+        & span {
+            color:red;
+        }
+    }
+
+    .warning {
+        & textarea, input{
+            border: solid rgb(121, 121, 0) 0.2vh;
+        }
+    }
+ 
+}
+
+.formSummaryError {
+    border: solid red 0.2vh;
+    padding: 0.5vh;
+    color:rosybrown;
+    width: 30vw;
+}

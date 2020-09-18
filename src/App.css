@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -35,4 +35,21 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+:root{
+  --app-header-font-size: 6vh;
+  --app-header-height: 40vh;
+}
+
+.App-header {
+	left:0;
+	top:0;
+	height: 40vh;
+	position: relative;
+	background: url('https://live.staticflickr.com/3948/15012426894_b8f7b372ec_b.jpg') no-repeat fixed;
+  background-size: cover;
+  color: white;
+  font-size: 6vh;
+  padding-top: calc((var(--app-header-height) - var(--app-header-font-size)) / 2);
 }
