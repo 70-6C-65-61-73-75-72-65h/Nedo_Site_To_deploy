@@ -2,7 +2,7 @@ const SET_MY_LOCATION = 'SET_MY_LOCATION'; // set latitude and longitude // set 
 const SET_LOCATION_STATUS = 'SET_LOCATION_STATUS'; // locationStatus
 
 // // set mapLink href textContent
-const SET_MAP_LINK_SCALE = 'SET_MAP_LINK_SCALE'; // set mapLink scale #map query
+const SET_MAP_MAX_SCALE = 'SET_MAP_LINK_SCALE'; // set mapLink scale #map query
 const SET_FETCHING_LOCATION = 'SET_FETCHING_LOCATION'
 
 const OSM_BASE_LINK = `https://www.openstreetmap.org/`;
@@ -13,7 +13,7 @@ let initialState = {
     latitude: null,
     longitude: null,
 
-    mapLinkScale: 14,
+    mapMaxScale: 14,
 
     isFetchingLocation: false,
 
@@ -39,8 +39,8 @@ const geoReducer = (state = initialState, action) => {
             return { ...state, latitude: action.latitude, longitude: action.longitude }
         }
 
-        case SET_MAP_LINK_SCALE: {
-            return { ...state, mapLinkScale: action.mapLinkScale }
+        case SET_MAP_MAX_SCALE: {
+            return { ...state, mapMaxScale: action.mapMaxScale }
         }
         default:
             return state;
@@ -51,7 +51,7 @@ const setFetchingLocation = (isFetchingLocation) => ({ type: SET_FETCHING_LOCATI
 const setMyLocation = (latitude, longitude) => ({ type: SET_MY_LOCATION, latitude, longitude })
 const setLocationStatus = (locationStatus) => ({ type: SET_LOCATION_STATUS, locationStatus })
 
-export const setMapLinkScale = (mapLinkScale) => ({ type: SET_MAP_LINK_SCALE, mapLinkScale })
+export const setMapMaxScale = (mapMaxScale) => ({ type: SET_MAP_MAX_SCALE, mapMaxScale })
 
 
 export const geoStatuses = {
