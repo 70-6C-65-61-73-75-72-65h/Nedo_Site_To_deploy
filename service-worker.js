@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Nedo_Site_To_deploy/precache-manifest.09900dfa577b7e6261d7111aadedbf17.js"
+  "/Nedo_Site_To_deploy/precache-manifest.50e96faf83342fd8b0a80d87b9a096a5.js"
 );
 
 self.addEventListener('message', (event) => {
