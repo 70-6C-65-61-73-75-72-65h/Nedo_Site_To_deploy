@@ -2,13 +2,16 @@ import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import geoClasses from './Geolocation.module.scss';
-import { getMyLocation, setMapMaxScale, geoStatuses } from '../../redux/geo-reducer';
+import { getMyLocation, setMapMaxScale, geoStatuses, getLocationRequests } from '../../redux/geo-reducer';
 import { useRangeInput } from '../common/hotEditingHook';
 import GeoMap from './LeafletMap/GeoMap';
 
+ 
 // const getOsmHref = (osmBaseLink, mapLinkScale, latitude, longitude) => {
 //     return `${osmBaseLink}/#map=${mapLinkScale}/${latitude}/${longitude}`
 // }
+
+
 
 const getOsmText = (latitude, longitude) => {
     return ` Широота: ${latitude} °, Долгота: ${longitude} °`
@@ -17,7 +20,8 @@ const getOsmText = (latitude, longitude) => {
 
 const GeolocationSnippet = ({locationStatus, osmBaseLink, latitude, longitude, 
                             mapMaxScale, isFetchingLocation,
-                            getMyLocation, setMapMaxScale}) => {
+                            getMyLocation, setMapMaxScale,
+                            locations, getLocationRequests}) => {
 
     const [ onScaleChange, scale ] = useRangeInput(mapMaxScale, setMapMaxScale)
     // we use only onScaleChange // scale // editMode( make it in  scss)
@@ -41,6 +45,11 @@ const GeolocationSnippet = ({locationStatus, osmBaseLink, latitude, longitude,
                 </div>
 
                 <GeoMap center={[latitude, longitude]} maxZoom={mapMaxScale} position={[latitude, longitude]} />
+
+                <button onClick={getLocationRequests}>Мои запросы по локации</button>
+                <div>{locations.map(
+                    loc=>  <div>{loc}</div>
+                )}</div>
                </>
             } 
         </div>
@@ -54,11 +63,14 @@ const mapStateToProps = (state) => ({
     osmBaseLink: state.geoLocation.osmBaseLink,
     locationStatus: state.geoLocation.locationStatus,
     isFetchingLocation: state.geoLocation.isFetchingLocation,
+
+    locations: state.geoLocation.locations,
 })
 
 export default compose(
     connect(mapStateToProps, {
         setMapMaxScale,
-        getMyLocation
+        getMyLocation,
+        getLocationRequests
     })
 )(GeolocationSnippet);
